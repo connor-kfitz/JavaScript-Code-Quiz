@@ -1,0 +1,28 @@
+* {
+    font-family: Arial;
+}
+
+button {
+    padding: 20px;
+    margin: 24px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: lightblue;
+    color: black;
+}
+
+.firstQuestionPage {
+    display: none;
+}
+
+.secondQuestionPage {
+    display: none;
+}
+
+.thirdQuestionPage {
+    display: none;
+}
+
+.endPage {
+    display: none;
+}
