@@ -24,21 +24,38 @@ var q3a2 = document.querySelector('#q3a2');
 var q3a3 = document.querySelector('#q3a3');
 var q3a4 = document.querySelector('#q3a4');
 
+var fourthQuestionPage = document.querySelector('.fourthQuestionPage');
+var q4a1 = document.querySelector('#q4a1');
+var q4a2 = document.querySelector('#q4a2');
+var q4a3 = document.querySelector('#q4a3');
+var q4a4 = document.querySelector('#q4a4');
+
+var fifthQuestionPage = document.querySelector('.fifthQuestionPage');
+var q5a1 = document.querySelector('#q5a1');
+var q5a2 = document.querySelector('#q5a2');
+var q5a3 = document.querySelector('#q5a3');
+var q5a4 = document.querySelector('#q5a4');
+
 var endPage = document.querySelector('.endPage');
 var finalscore = document.querySelector("#finalscore");
 var restartButton = document.querySelector('#restartButton');
 var saveButton = document.querySelector('#saveButton');
 
+var name = "Connor";
+var secondsLeft = 20;
+
 var quizEnd = false;
 
 var wrongAnswer = false;
+var highScores = {
+    name: name.value,
+    score: secondsLeft.value
+};
+
 
 // Timer
-
-
 function countdown(){
-    var secondsLeft = 20;
-
+    secondsLeft = 20;
     var timeInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
@@ -49,24 +66,27 @@ function countdown(){
         }
         else if (quizEnd) {
             finalscore.textContent = "Your final score is " + secondsLeft;
+            localStorage.setItem("highScores", JSON.stringify(highScores));
             clearInterval(timeInterval);  
         }
         else if (secondsLeft <= 0){
             quizEnd = true;
             clearInterval(timeInterval);
             finalscore.textContent = "Your final score is " + secondsLeft;
-            pageArray = [firstQuestionPage, secondQuestionPage, thirdQuestionPage];
+            pageArray = [firstQuestionPage, secondQuestionPage, thirdQuestionPage, fourthQuestionPage, fifthQuestionPage];
             firstQuestionPage.setAttribute('style', 'display:none;');
             secondQuestionPage.setAttribute('style', 'display:none;');
             thirdQuestionPage.setAttribute('style', 'display:none;');
+            fourthQuestionPage.setAttribute('style', 'display:none;');
+            fifthQuestionPage.setAttribute('style', 'display:none;');
             endPage.setAttribute('style', 'display:block;');
         }
       }, 1000);
 }
+timeEl.textContent = "20";
 
 //Next Page Activation
 startButton.addEventListener('click', function(){
-    timeEl.textContent = "10";
     startPage.setAttribute('style', 'display:none;');
     firstQuestionPage.setAttribute('style', 'display:block;');
     countdown();
@@ -82,6 +102,8 @@ for(var i=0; i < 4; i++) {
     }   
     else {
         q1array[i].addEventListener('click', function(){
+        firstQuestionPage.setAttribute('style', 'display:none;');
+        secondQuestionPage.setAttribute('style', 'display:block;');
         wrongAnswer = true;
         })
     }
@@ -89,7 +111,7 @@ for(var i=0; i < 4; i++) {
 
 q2array = [q2a1, q2a2, q2a3, q2a4];
 for(var i=0; i < 4; i++) {
-    if (i==1){
+    if (i==0){
         q2array[i].addEventListener('click', function(){
         secondQuestionPage.setAttribute('style', 'display:none;');
         thirdQuestionPage.setAttribute('style', 'display:block;');
@@ -97,6 +119,8 @@ for(var i=0; i < 4; i++) {
     }   
     else {
         q2array[i].addEventListener('click', function(){
+            secondQuestionPage.setAttribute('style', 'display:none;');
+        thirdQuestionPage.setAttribute('style', 'display:block;');
         wrongAnswer = true;
         })
     }
@@ -104,15 +128,53 @@ for(var i=0; i < 4; i++) {
 
 q3array = [q3a1, q3a2, q3a3, q3a4];
 for(var i=0; i < 4; i++) {
-    if (i==2){
+    if (i==0){
         q3array[i].addEventListener('click', function(){
         thirdQuestionPage.setAttribute('style', 'display:none;');
+        fourthQuestionPage.setAttribute('style', 'display:block;');
+        })
+    }   
+    else {
+        q3array[i].addEventListener('click', function(){
+            thirdQuestionPage.setAttribute('style', 'display:none;');
+        fourthQuestionPage.setAttribute('style', 'display:block;');
+        wrongAnswer = true;
+        })
+    }
+}
+
+q4array = [q4a1, q4a2, q4a3, q4a4];
+for(var i=0; i < 4; i++) {
+    if (i==0){
+        q4array[i].addEventListener('click', function(){
+        fourthQuestionPage.setAttribute('style', 'display:none;');
+        fifthQuestionPage.setAttribute('style', 'display:block;');
+        })
+    }   
+    else {
+        q4array[i].addEventListener('click', function(){
+        fourthQuestionPage.setAttribute('style', 'display:none;');
+        fifthQuestionPage.setAttribute('style', 'display:block;');
+        wrongAnswer = true;
+        })
+    }
+}
+
+
+
+q5array = [q5a1, q5a2, q5a3, q5a4];
+for(var i=0; i < 4; i++) {
+    if (i==0){
+        q5array[i].addEventListener('click', function(){
+        fifthQuestionPage.setAttribute('style', 'display:none;');
         endPage.setAttribute('style', 'display:block;');
         quizEnd = true;
         })
     }   
     else {
-        q3array[i].addEventListener('click', function(){
+        q5array[i].addEventListener('click', function(){
+        fifthQuestionPage.setAttribute('style', 'display:none;');
+        endPage.setAttribute('style', 'display:block;');
         wrongAnswer = true;
         })
     }
