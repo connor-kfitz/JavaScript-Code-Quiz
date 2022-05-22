@@ -41,11 +41,13 @@ var finalscore = document.querySelector("#finalscore");
 var restartButton = document.querySelector('#restartButton');
 var saveButton = document.querySelector('#saveButton');
 var textArea = document.querySelector("#textArea");
+var notification = document.querySelector("#notification");
 var topname1 = document.querySelector("#topname1");
 var topname2 = document.querySelector("#topname2");
 var topname3 = document.querySelector("#topname3");
 
-var playerName = "Connor";
+var nameSaved = false;
+
 var secondsLeft = 20;
 
 var quizEnd = false;
@@ -185,6 +187,7 @@ restartButton.addEventListener('click', function(){
     endPage.setAttribute('style', 'display:none;');
     firstQuestionPage.setAttribute('style', 'display:block;');
     quizEnd = false;
+    nameSaved = false;
     countdown();
 })
 
@@ -206,32 +209,41 @@ saveButton.addEventListener('click', function(){
     var scoreName= lastUser.name;
     var scoreScore = lastUser.score;
 
-    if(scoreScore > topscore1){
-        topscorename3 = topscorename2;
-        topscore3 = topscore2;
-        topscorename2 = topscorename1;
-        topscore2 = topscore1;
-        topscorename1 = scoreName;
-        topscore1 = scoreScore;
-        
-        topname1.textContent = scoreName + " " + scoreScore;
-        topname2.textContent = topscorename2 + " " + topscore2;
-        topname3.textContent = topscorename3 + " " + topscore3;
-    }
-    else if(scoreScore > topscore2){
-        topscorename3 = topscorename2;
-        topscore3 = topscore2;
-        topscorename2 = scoreName;
-        topscore2 = scoreScore;
+    if(scoreName.length <= 0 || scoreName.length > 10){
+        notification.textContent = "Please enter a name with a valid length";
+    } else {
+        if(nameSaved == false){
+            if(scoreScore > topscore1){
+                topscorename3 = topscorename2;
+                topscore3 = topscore2;
+                topscorename2 = topscorename1;
+                topscore2 = topscore1;
+                topscorename1 = scoreName;
+                topscore1 = scoreScore;
+                
+                topname1.textContent = scoreName + " " + scoreScore;
+                topname2.textContent = topscorename2 + " " + topscore2;
+                topname3.textContent = topscorename3 + " " + topscore3;
+                nameSaved = true;
+            }
+            else if(scoreScore > topscore2){
+                topscorename3 = topscorename2;
+                topscore3 = topscore2;
+                topscorename2 = scoreName;
+                topscore2 = scoreScore;
 
-        topname2.textContent = scoreName + " " + scoreScore;
-        topname3.textContent = topscorename3 + " " + topscore3;
-    }
-    else if(scoreScore > topscore3){
-        topscorename3 = scoreName;
-        topscore3 = scoreScore;
+                topname2.textContent = scoreName + " " + scoreScore;
+                topname3.textContent = topscorename3 + " " + topscore3;
+                nameSaved = true;
+            }
+            else if(scoreScore > topscore3){
+                topscorename3 = scoreName;
+                topscore3 = scoreScore;
 
-        topname3.textContent = scoreName + " " + scoreScore;
+                topname3.textContent = scoreName + " " + scoreScore;
+                nameSaved = true;
+            }
+        }
     }
 })
 
