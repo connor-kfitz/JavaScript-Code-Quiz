@@ -12,57 +12,63 @@
 
 <body>
 
-    <h1 class = "time"></h1>
+    <div id = 'timercontainer'>
+        <h1>Time:</h1>
+        <pre> </pre>
+        <h1 class = "time"></h1>
+    </div>
 
     <div class = "startPage">
         <header>
             <h1 id = "mainHeading">Coding Multiple Choice Quiz Challenge</h1>
-            <h2 id = "subHeading">Press Start to being the timed coding challenge.</h2>
+            <h3 id = "subHeading">Press Start to being the timed coding challenge.</h2>
             
         </header>
 
         <button id ="startButton">Start</button>
     </div>
 
-    <div>
+    <div class = "main">
     
         <div class = "firstQuestionPage">
             <div class = "timer"></div>
             <header>
-            <h1> This is the first question</h1>
+            <h1>Which of the following is not a JavaScript data type:</h1>
             </header>
 
-            <button id ="q1a1">A1</button>
-            <button id ="q1a2">A1</button>
-            <button id ="q1a3">A1</button>
-            <button id ="q1a4">A1</button>
+            <div class="answerContainer">
+                <button id ="q1a1">Boolean</button>
+                <button id ="q1a2">Number</button>
+                <button id ="q1a3">String</button>
+                <button id ="q1a4">Array</button>
+            </div>
         </div>
 
         <div class = "secondQuestionPage">
-            <h1> This is the second question</h1>
+            <h1>Which of the following is used to create an array:</h1>
 
-            <button id ="q2a1">A1</button>
-            <button id ="q2a2">A1</button>
-            <button id ="q2a3">A1</button>
-            <button id ="q2a4">A1</button>
+            <button id ="q2a1">{ }</button>
+            <button id ="q2a2">[ ]</button>
+            <button id ="q2a3">( )</button>
+            <button id ="q2a4">< ></button>
         </div>
 
         <div class = "thirdQuestionPage">
-            <h1> This is the third question</h1>
+            <h1>Which of the following prefixes is used to comment out a line of code:</h1>
 
-            <button id ="q3a1">A1</button>
-            <button id ="q3a2">A1</button>
-            <button id ="q3a3">A1</button>
-            <button id ="q3a4">A1</button>
+            <button id ="q3a1">//</button>
+            <button id ="q3a2">||</button>
+            <button id ="q3a3">??</button>
+            <button id ="q3a4">\\</button>
         </div>
 
         <div class = "fourthQuestionPage">
-            <h1> This is the fourth question</h1>
+            <h1>Which of the following is used to compare two data types:</h1>
 
-            <button id ="q4a1">A1</button>
-            <button id ="q4a2">A1</button>
-            <button id ="q4a3">A1</button>
-            <button id ="q4a4">A1</button>
+            <button id ="q4a1">==</button>
+            <button id ="q4a2">===</button>
+            <button id ="q4a3">/=</button>
+            <button id ="q4a4">=></button>
         </div>
 
         <div class = "fifthQuestionPage">
@@ -79,16 +85,19 @@
     <div class = "endPage">
         <h1 id = "score">Highscores</h1>
             <ol>
-                <li id = "topname1">0</li>
-                <li id = "topname2">0</li>
-                <li id = "topname3">0</li>
+                <li id = "topname1">1.</li>
+                <li id = "topname2">2.</li>
+                <li id = "topname3">3.</li>
             </ol>
+        <!-- <p id = "finalscore"></p> -->
+        
+        <div>
+            <button id ="restartButton">Restart</button>
+            <textarea id="textArea" placeholder="Your Name"></textarea>
+            <button id ="saveButton">Save</button>
+            
+        </div>
 
-        <h1>This is the end page</h1>
-        <p id = "finalscore"></p>
-        <button id ="restartButton">Restart</button>
-        <button id ="saveButton">Save</button>
-        <textarea id="textArea" placeholder="Your Name"></textarea>
         <h1 id = "notification"></h1>
     </div>
 

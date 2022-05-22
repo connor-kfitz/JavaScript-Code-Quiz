@@ -98,7 +98,7 @@ startButton.addEventListener('click', function(){
 
 q1array = [q1a1, q1a2, q1a3, q1a4];
 for(var i=0; i < 4; i++) {
-    if (i==0){
+    if (i==3){
         q1array[i].addEventListener('click', function(){
         firstQuestionPage.setAttribute('style', 'display:none;');
         secondQuestionPage.setAttribute('style', 'display:block;');
@@ -115,7 +115,7 @@ for(var i=0; i < 4; i++) {
 
 q2array = [q2a1, q2a2, q2a3, q2a4];
 for(var i=0; i < 4; i++) {
-    if (i==0){
+    if (i==1){
         q2array[i].addEventListener('click', function(){
         secondQuestionPage.setAttribute('style', 'display:none;');
         thirdQuestionPage.setAttribute('style', 'display:block;');
@@ -149,7 +149,7 @@ for(var i=0; i < 4; i++) {
 
 q4array = [q4a1, q4a2, q4a3, q4a4];
 for(var i=0; i < 4; i++) {
-    if (i==0){
+    if (i==1){
         q4array[i].addEventListener('click', function(){
         fourthQuestionPage.setAttribute('style', 'display:none;');
         fifthQuestionPage.setAttribute('style', 'display:block;');
@@ -209,7 +209,7 @@ saveButton.addEventListener('click', function(){
     var scoreName= lastUser.name;
     var scoreScore = lastUser.score;
 
-    if(scoreName.length <= 0 || scoreName.length > 10){
+    if(scoreName.length <= 0 || scoreName.length > 2){
         notification.textContent = "Please enter a name with a valid length";
     } else {
         if(nameSaved == false){

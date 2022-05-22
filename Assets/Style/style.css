@@ -1,36 +1,82 @@
+/* Entire Page */
 * {
     font-family: Arial;
+    margin: 0px;
+    padding: 0px;
 }
 
 button {
     padding: 20px;
     margin: 24px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
     background-color: lightblue;
     color: black;
+    text-align: center;
 }
 
+.main button {
+    padding: 40px;
+}
+
+/* Start Page */
+.startPage {
+    text-align: center;
+}
+
+#timercontainer {
+    display: flex;
+}
+
+/* First Question Page */
 .firstQuestionPage {
-    display: none;
+    display: block;
+    text-align: center;
+    justify-content: center;
 }
 
+.answerContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Second Question Page */
 .secondQuestionPage {
-    display: none;
+    display: block;
+    text-align: center;
 }
 
 .thirdQuestionPage {
-    display: none;
+    display: block;
+    text-align: center;
 }
 
 .fourthQuestionPage {
-    display: none;
+    display: block;
+    text-align: center;
 }
 
 .fifthQuestionPage {
-    display: none;
+    display: block;
+    text-align: center;
 }
 
+/* End Page */
 .endPage {
-    display: none;
+    display: block;
+    text-align: center;
+}
+
+/* .container {
+    display:flex;
+    align-items: center;
+    text-align: center;
+} */
+
+textarea {
+    resize: none;
+    width: 200px;
+    height: 20px;
 }
