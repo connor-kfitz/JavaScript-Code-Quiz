@@ -40,22 +40,22 @@ var endPage = document.querySelector('.endPage');
 var finalscore = document.querySelector("#finalscore");
 var restartButton = document.querySelector('#restartButton');
 var saveButton = document.querySelector('#saveButton');
+var textArea = document.querySelector("#textArea");
+var topname1 = document.querySelector("#topname1");
+var topname2 = document.querySelector("#topname2");
+var topname3 = document.querySelector("#topname3");
 
-var name = "Connor";
+var playerName = "Connor";
 var secondsLeft = 20;
 
 var quizEnd = false;
 
 var wrongAnswer = false;
-var highScores = {
-    name: name.value,
-    score: secondsLeft.value
-};
-
 
 // Timer
 function countdown(){
     secondsLeft = 20;
+
     var timeInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
@@ -66,7 +66,7 @@ function countdown(){
         }
         else if (quizEnd) {
             finalscore.textContent = "Your final score is " + secondsLeft;
-            localStorage.setItem("highScores", JSON.stringify(highScores));
+            // localStorage.setItem("highScores", JSON.stringify(highScores));
             clearInterval(timeInterval);  
         }
         else if (secondsLeft <= 0){
@@ -79,7 +79,9 @@ function countdown(){
             thirdQuestionPage.setAttribute('style', 'display:none;');
             fourthQuestionPage.setAttribute('style', 'display:none;');
             fifthQuestionPage.setAttribute('style', 'display:none;');
-            endPage.setAttribute('style', 'display:block;');
+            endPage.setAttribute('style', 'display:block;');      
+            
+            
         }
       }, 1000);
 }
@@ -160,8 +162,6 @@ for(var i=0; i < 4; i++) {
     }
 }
 
-
-
 q5array = [q5a1, q5a2, q5a3, q5a4];
 for(var i=0; i < 4; i++) {
     if (i==0){
@@ -188,7 +188,51 @@ restartButton.addEventListener('click', function(){
     countdown();
 })
 
-// startButton.addEventListener('click', function(){
-// })
+var topscorename1 = "";
+    var topscorename2 = "";
+    var topscorename3 = "";
+    var topscore1 = 0;
+    var topscore2 = 0;
+    var topscore3 = 0;
+
+saveButton.addEventListener('click', function(){
+    var highScores = {
+        name: document.querySelector("textarea").value,
+        score: secondsLeft
+    };
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    var lastUser = JSON.parse(localStorage.getItem("highScores"));
+    var scoreName= lastUser.name;
+    var scoreScore = lastUser.score;
+
+    if(scoreScore > topscore1){
+        topscorename3 = topscorename2;
+        topscore3 = topscore2;
+        topscorename2 = topscorename1;
+        topscore2 = topscore1;
+        topscorename1 = scoreName;
+        topscore1 = scoreScore;
+        
+        topname1.textContent = scoreName + " " + scoreScore;
+        topname2.textContent = topscorename2 + " " + topscore2;
+        topname3.textContent = topscorename3 + " " + topscore3;
+    }
+    else if(scoreScore > topscore2){
+        topscorename3 = topscorename2;
+        topscore3 = topscore2;
+        topscorename2 = scoreName;
+        topscore2 = scoreScore;
+
+        topname2.textContent = scoreName + " " + scoreScore;
+        topname3.textContent = topscorename3 + " " + topscore3;
+    }
+    else if(scoreScore > topscore3){
+        topscorename3 = scoreName;
+        topscore3 = scoreScore;
+
+        topname3.textContent = scoreName + " " + scoreScore;
+    }
+})
 
 

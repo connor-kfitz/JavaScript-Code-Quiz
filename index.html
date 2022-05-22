@@ -13,7 +13,6 @@
 <body>
 
     <h1 class = "time"></h1>
-    <h1>Highscore:</h1>
 
     <div class = "startPage">
         <header>
@@ -78,10 +77,18 @@
     </div>
 
     <div class = "endPage">
+        <h1 id = "score">Highscores</h1>
+            <ol>
+                <li id = "topname1">0</li>
+                <li id = "topname2">0</li>
+                <li id = "topname3">0</li>
+            </ol>
+
         <h1>This is the end page</h1>
         <p id = "finalscore"></p>
         <button id ="restartButton">Restart</button>
         <button id ="saveButton">Save</button>
+        <textarea id="textArea" placeholder="Your Name"></textarea>
     </div>
 
     <script src ="Assets/Javascript/script.js"></script>
