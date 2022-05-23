@@ -8,12 +8,13 @@
 button {
     padding: 20px;
     margin: 24px;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
     background-color: lightblue;
     color: black;
     text-align: center;
+    width: 7%;
 }
 
 .main button {
@@ -31,12 +32,12 @@ button {
 
 /* First Question Page */
 .firstQuestionPage {
-    display: block;
+    display: none;
     text-align: center;
     justify-content: center;
 }
 
-.answerContainer {
+.flex-container {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -44,36 +45,43 @@ button {
 
 /* Second Question Page */
 .secondQuestionPage {
-    display: block;
+    display: none;
     text-align: center;
 }
 
 .thirdQuestionPage {
-    display: block;
+    display: none;
     text-align: center;
 }
 
 .fourthQuestionPage {
-    display: block;
+    display: none;
     text-align: center;
 }
 
 .fifthQuestionPage {
-    display: block;
+    display: none;
     text-align: center;
 }
 
 /* End Page */
 .endPage {
-    display: block;
+    display: none;
     text-align: center;
 }
 
-/* .container {
-    display:flex;
+#finalscore {
+    margin-top: 10px;
+}
+
+#score {
+    margin-bottom: 8px;
+}
+
+.flex-container {
+    display: flex;
     align-items: center;
-    text-align: center;
-} */
+}
 
 textarea {
     resize: none;
