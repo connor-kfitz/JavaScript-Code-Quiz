@@ -1,10 +1,9 @@
 /* Entire Page */
 * {
-    font-family: Arial;
+    font-family: Arial, 'Times New Roman', Times;
     margin: 0px;
     padding: 0px;
 }
-
 button {
     padding: 20px;
     margin: 24px;
@@ -17,6 +16,7 @@ button {
     width: 7%;
 }
 
+/* Main */
 .main button {
     padding: 40px;
 }
@@ -25,7 +25,6 @@ button {
 .startPage {
     text-align: center;
 }
-
 #timercontainer {
     display: flex;
 }
@@ -36,7 +35,6 @@ button {
     text-align: center;
     justify-content: center;
 }
-
 .flex-container {
     display: flex;
     justify-content: center;
@@ -48,17 +46,14 @@ button {
     display: none;
     text-align: center;
 }
-
 .thirdQuestionPage {
     display: none;
     text-align: center;
 }
-
 .fourthQuestionPage {
     display: none;
     text-align: center;
 }
-
 .fifthQuestionPage {
     display: none;
     text-align: center;
@@ -69,20 +64,16 @@ button {
     display: none;
     text-align: center;
 }
-
 #finalscore {
     margin-top: 10px;
 }
-
 #score {
     margin-bottom: 8px;
 }
-
 .flex-container {
     display: flex;
     align-items: center;
 }
-
 textarea {
     resize: none;
     width: 200px;

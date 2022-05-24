@@ -1,41 +1,47 @@
-//Declare variables for html elemnts
+//Variables to link HTML elements
+// //Timer
+var timeEl = document.querySelector(".time");
+
+// // Start Page
 var startButton = document.querySelector("#startButton");
 var startPage = document.querySelector(".startPage");
 
-var timeEl = document.querySelector(".time");
-
+// //First Question Page
 var firstQuestionPage = document.querySelector('.firstQuestionPage');
 var q1a1 = document.querySelector('#q1a1');
 var q1a2 = document.querySelector('#q1a2');
 var q1a3 = document.querySelector('#q1a3');
 var q1a4 = document.querySelector('#q1a4');
 
-
+// //Second Question Page
 var secondQuestionPage = document.querySelector('.secondQuestionPage');
 var q2a1 = document.querySelector('#q2a1');
 var q2a2 = document.querySelector('#q2a2');
 var q2a3 = document.querySelector('#q2a3');
 var q2a4 = document.querySelector('#q2a4');
 
-
+// //Third Question Page
 var thirdQuestionPage = document.querySelector('.thirdQuestionPage');
 var q3a1 = document.querySelector('#q3a1');
 var q3a2 = document.querySelector('#q3a2');
 var q3a3 = document.querySelector('#q3a3');
 var q3a4 = document.querySelector('#q3a4');
 
+// //Fourth Question Page
 var fourthQuestionPage = document.querySelector('.fourthQuestionPage');
 var q4a1 = document.querySelector('#q4a1');
 var q4a2 = document.querySelector('#q4a2');
 var q4a3 = document.querySelector('#q4a3');
 var q4a4 = document.querySelector('#q4a4');
 
+// //Fifth Question Page
 var fifthQuestionPage = document.querySelector('.fifthQuestionPage');
 var q5a1 = document.querySelector('#q5a1');
 var q5a2 = document.querySelector('#q5a2');
 var q5a3 = document.querySelector('#q5a3');
 var q5a4 = document.querySelector('#q5a4');
 
+// //End Page
 var endPage = document.querySelector('.endPage');
 var finalscore = document.querySelector("#finalscore");
 var restartButton = document.querySelector('#restartButton');
@@ -46,19 +52,16 @@ var topname1 = document.querySelector("#topname1");
 var topname2 = document.querySelector("#topname2");
 var topname3 = document.querySelector("#topname3");
 
+// //Logic & Value Variables
 var nameSaved = false;
-
+var quizEnd = false;
+var wrongAnswer = false;
 var secondsLeft = 30;
 timeEl.textContent = "30";
 
-var quizEnd = false;
-
-var wrongAnswer = false;
-
-// Timer
+//Timer
 function countdown(){
     secondsLeft = 30;
-
     var timeInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
@@ -69,7 +72,6 @@ function countdown(){
         }
         else if (quizEnd) {
             finalscore.textContent = "Your final score is " + secondsLeft;
-            // localStorage.setItem("highScores", JSON.stringify(highScores));
             clearInterval(timeInterval);  
         }
         else if (secondsLeft <= 0){
@@ -86,18 +88,19 @@ function countdown(){
       }, 1000);
 }
 
-
-//Next Page Activation
+//Listeners for next page activation
+// //Start Button --> First Page
 startButton.addEventListener('click', function(){
     startPage.setAttribute('style', 'display:none;');
     firstQuestionPage.setAttribute('style', 'display:block;');
     countdown();
 })
 
+// //First Question --> Second Question
 q1array = [q1a1, q1a2, q1a3, q1a4];
 for(var i=0; i < 4; i++) {
     //Answer i = 3
-    if (i==0){
+    if (i==3){
         q1array[i].addEventListener('click', function(){
         firstQuestionPage.setAttribute('style', 'display:none;');
         secondQuestionPage.setAttribute('style', 'display:block;');
@@ -112,10 +115,11 @@ for(var i=0; i < 4; i++) {
     }
 }
 
+// //Second Question --> Third Question
 q2array = [q2a1, q2a2, q2a3, q2a4];
 for(var i=0; i < 4; i++) {
     //Answer i = 1
-    if (i==0){
+    if (i==1){
         q2array[i].addEventListener('click', function(){
         secondQuestionPage.setAttribute('style', 'display:none;');
         thirdQuestionPage.setAttribute('style', 'display:block;');
@@ -130,6 +134,7 @@ for(var i=0; i < 4; i++) {
     }
 }
 
+// //Third Question --> Fourth Question
 q3array = [q3a1, q3a2, q3a3, q3a4];
 for(var i=0; i < 4; i++) {
     //Answer i = 0
@@ -148,10 +153,11 @@ for(var i=0; i < 4; i++) {
     }
 }
 
+// //Fourth Question --> Fifth Question
 q4array = [q4a1, q4a2, q4a3, q4a4];
 for(var i=0; i < 4; i++) {
     // Answer i = 1
-    if (i==0){
+    if (i==1){
         q4array[i].addEventListener('click', function(){
         fourthQuestionPage.setAttribute('style', 'display:none;');
         fifthQuestionPage.setAttribute('style', 'display:block;');
@@ -166,6 +172,7 @@ for(var i=0; i < 4; i++) {
     }
 }
 
+// //Fifth Question --> End Page
 q5array = [q5a1, q5a2, q5a3, q5a4];
 for(var i=0; i < 4; i++) {
     //Answer i = 0
@@ -186,8 +193,9 @@ for(var i=0; i < 4; i++) {
     }
 }
 
+// //End Page --> First Question (RESTART)
 restartButton.addEventListener('click', function(){
-    timeEl.textContent = "20";
+    timeEl.textContent = "30";
     endPage.setAttribute('style', 'display:none;');
     firstQuestionPage.setAttribute('style', 'display:block;');
     quizEnd = false;
@@ -195,6 +203,8 @@ restartButton.addEventListener('click', function(){
     countdown();
 })
 
+//Highscore Board
+// //Variables
 var topscorename1 = "";
     var topscorename2 = "";
     var topscorename3 = "";
@@ -202,6 +212,7 @@ var topscorename1 = "";
     var topscore2 = 0;
     var topscore3 = 0;
 
+// //Save Button Listener
 saveButton.addEventListener('click', function(){
     var highScores = {
         name: document.querySelector("textarea").value,

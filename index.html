@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Quiz</title>
     <link rel="stylesheet" href="./Assets/Style/style.css">
 
 </head>
-
 
 <body>
 
@@ -22,18 +21,14 @@
         <header>
             <h1 id = "mainHeading">Coding Multiple Choice Quiz Challenge</h1>
             <h3 id = "subHeading">Press Start to being the timed coding challenge.</h2>
-            
         </header>
-
         <button id ="startButton">Start</button>
     </div>
 
     <div class = "main">
-    
         <div class = "firstQuestionPage">
             <div class = "timer"></div>
             <h1>Which of the following is not a JavaScript data type:</h1>
-
             <div class="flex-container">
                 <button id ="q1a1">Boolean</button>
                 <button id ="q1a2">Number</button>
@@ -41,66 +36,52 @@
                 <button id ="q1a4">Array</button>
             </div>
         </div>
-
         <div class = "secondQuestionPage">
             <h1>Which of the following is used to create an array:</h1>
-
             <button id ="q2a1">{ }</button>
             <button id ="q2a2">[ ]</button>
             <button id ="q2a3">( )</button>
             <button id ="q2a4">< ></button>
         </div>
-
         <div class = "thirdQuestionPage">
             <h1>Which of the following prefixes is used to comment out a line of code:</h1>
-
             <button id ="q3a1">//</button>
             <button id ="q3a2">||</button>
             <button id ="q3a3">??</button>
             <button id ="q3a4">\\</button>
         </div>
-
         <div class = "fourthQuestionPage">
             <h1>Which of the following is used to compare two data types:</h1>
-
             <button id ="q4a1">==</button>
             <button id ="q4a2">===</button>
             <button id ="q4a3">/=</button>
             <button id ="q4a4">=></button>
         </div>
-
         <div class = "fifthQuestionPage">
             <h1>Which of the following is used to end a line of code:</h1>
-
             <button id ="q5a1">;</button>
             <button id ="q5a2">:</button>
             <button id ="q5a3">|</button>
             <button id ="q5a4">/</button>
         </div>
-
     </div>
 
     <div class = "endPage">
         <h1 id = "score">Highscores</h1>
-            <ol>
-                <li id = "topname1">1.</li>
-                <li id = "topname2">2.</li>
-                <li id = "topname3">3.</li>
-            </ol>
-
-
+        <ol>
+            <li id = "topname1">1. 0</li>
+            <li id = "topname2">2. 0</li>
+            <li id = "topname3">3. 0</li>
+        </ol>
         <h2 id = "finalscore">Your final score is 29</h2>
         <div class = flex-container>
             <button id ="restartButton">Restart</button>
-            
             <textarea id="textArea" placeholder="Your Name"></textarea>
             <button id ="saveButton">Save</button>
         </div>
-
-        <h1 id = "notification"></h1>
+        <h2 id = "notification"></h2>
     </div>
-
+    
     <script src ="Assets/Javascript/script.js"></script>
 </body>
-
 </html>
